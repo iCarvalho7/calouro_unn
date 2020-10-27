@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "23906011691",
+    "firebase_url": "https://calourounn.firebaseio.com",
+    "project_id": "calourounn",
+    "storage_bucket": "calourounn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23906011691:android:6af70c884eda42b906b86e",
+        "android_client_info": {
+          "package_name": "br.com.isaias.calourouninorte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23906011691-vgq3t8no76pgi7ndvikut02c29d1lv9t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.isaias.calourouninorte",
+            "certificate_hash": "bf966ce778509c8f73641fef59cea47d1dde1705"
+          }
+        },
+        {
+          "client_id": "23906011691-bcs0j06n023s3e330ep09n9gkhiu8pk6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5fNtWvQatvTHk_vFtnX0NMZVbQ4y-230"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23906011691-bcs0j06n023s3e330ep09n9gkhiu8pk6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
