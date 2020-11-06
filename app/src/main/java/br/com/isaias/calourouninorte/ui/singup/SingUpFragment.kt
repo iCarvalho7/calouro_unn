@@ -29,13 +29,13 @@ class SingUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        singUpViewModel.user.observe(viewLifecycleOwner, Observer {
+        singUpViewModel.singUp().observe(viewLifecycleOwner, Observer {
             if (it != null){
+                singUpViewModel.createUser()
                 Snackbar.make(view,"O usuário foi criado com Sucesso",Snackbar.LENGTH_SHORT ).show()
                 findNavController().navigate(SingUpFragmentDirections.actionSingUpFragmentToStudentListFragment())
             }else{
                 Snackbar.make(view,"O usuário não pode ser criado",Snackbar.LENGTH_SHORT ).show()
-
             }
         })
     }

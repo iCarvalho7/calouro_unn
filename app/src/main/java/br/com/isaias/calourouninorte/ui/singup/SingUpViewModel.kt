@@ -19,15 +19,11 @@ class SingUpViewModel(private val repository: UserRepository) : ViewModel() {
     var password = ObservableField("")
     var confirmPassword = ObservableField("")
 
-    private val _createdUser = MutableLiveData<FirebaseUser?>()
-    val user : LiveData<FirebaseUser?> = _createdUser
+    private lateinit var user :User
 
-    fun singUp() {
-        viewModelScope.launch {
-            val user = initUser()
-            val result = repository.createUserInFirebase(user)
-            if (result is Result.Success) _createdUser.postValue(result.data) else _createdUser.postValue(null)
-        }
+    fun singUp() : MutableLiveData<FirebaseUser?>  {
+        user = initUser()
+        return repository.createUserInFirebase(user)
     }
 
     private fun initUser(): User = User(
@@ -36,4 +32,10 @@ class SingUpViewModel(private val repository: UserRepository) : ViewModel() {
         username = username.get() ?: "",
         password = password.get() ?: ""
     )
+
+    fun createUser() {
+        viewModelScope.launch {
+            repository.insertUser(user)
+        }
+    }
 }
