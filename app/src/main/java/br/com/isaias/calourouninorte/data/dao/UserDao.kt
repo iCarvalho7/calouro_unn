@@ -1,20 +1,17 @@
 package br.com.isaias.calourouninorte.data.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import br.com.isaias.calourouninorte.data.model.User
 
 @Dao
 interface UserDao {
 
     @Delete
-    fun delete(user: User)
+    suspend fun delete(user: User)
 
     @Query("SELECT * FROM user LIMIT 1")
-    fun getCurrentUser() : User
+    suspend fun getCurrentUser() : User?
 
-    @Insert
-    fun insert(user: User)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(user: User)
 }

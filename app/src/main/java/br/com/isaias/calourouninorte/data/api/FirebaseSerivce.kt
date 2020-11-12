@@ -13,7 +13,7 @@ class FirebaseSerivce {
     }
 
     val userIsLogged = MutableLiveData<FirebaseUser?>()
-
+    val userIsRegistred = MutableLiveData<FirebaseUser?>()
 
     fun login(email: String, password: String): MutableLiveData<FirebaseUser?> {
         try {
@@ -30,7 +30,7 @@ class FirebaseSerivce {
 
 
     fun register(email: String, password: String) : MutableLiveData<FirebaseUser?> {
-        val userIsRegistred = MutableLiveData<FirebaseUser?>()
+
         try {
             firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
