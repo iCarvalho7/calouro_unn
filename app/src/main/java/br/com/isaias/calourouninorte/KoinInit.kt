@@ -6,6 +6,7 @@ import br.com.isaias.calourouninorte.data.database.AppDatabase
 import br.com.isaias.calourouninorte.data.repository.UserRepository
 import br.com.isaias.calourouninorte.ui.login.LoginViewModel
 import br.com.isaias.calourouninorte.ui.singup.SingUpViewModel
+import br.com.isaias.calourouninorte.ui.students_list.StudentListViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -13,6 +14,7 @@ import org.koin.dsl.module
 val viewModelModule: Module = module {
     viewModel { LoginViewModel(get()) }
     viewModel { SingUpViewModel(get()) }
+    viewModel { StudentListViewModel(get()) }
 }
 
 val module: Module = module {
