@@ -11,11 +11,12 @@ class UserRepository(private val serivce: FirebaseSerivce, private val userDao: 
     suspend fun removeUser(user: User) = userDao.delete(user)
     suspend fun getUser() = userDao.getCurrentUser()
     fun createUserInFirebase(user: User): MutableLiveData<FirebaseUser?> =
-        serivce.register(user.email, user.password)
+        serivce.register(user)
 
     fun loginInFirebase(username: String, password: String): MutableLiveData<FirebaseUser?> =
         serivce.login(username, password)
 
     suspend fun logoutFirebaseUser() = serivce.logout()
     suspend fun getFirebaseCurrentUser() = serivce.currentUser()
+    fun getAllUsers() = serivce.fetchAllUsers()
 }
