@@ -44,18 +44,14 @@ class LoginFragment : Fragment() {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSingUpFragment())
         }
 
-        viewModel.login().observe(viewLifecycleOwner, Observer {
+        viewModel.login(false).observe(viewLifecycleOwner, Observer {
+            viewModel.userInteraction.postValue(true)
             if (it != null){
-                viewModel.userInteraction.postValue(true)
                 Snackbar.make(view,"Login feito com Sucesso",Snackbar.LENGTH_SHORT ).show()
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStudentListFragment())
             }else{
                 Snackbar.make(view,"Erro ao fazer Login",Snackbar.LENGTH_SHORT ).show()
             }
         })
-
-        viewModel.userInteraction.observe(viewLifecycleOwner, Observer {
-        })
-
     }
 }
