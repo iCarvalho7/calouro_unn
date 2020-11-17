@@ -2,6 +2,7 @@ package br.com.isaias.calourouninorte.ui.students_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,9 +10,12 @@ import br.com.isaias.calourouninorte.data.model.User
 import br.com.isaias.calourouninorte.databinding.ItemStudentsBinding
 
 
-class StudentListAdapter(private val viewModel: StudentListViewModel) :
+class StudentListAdapter(private val viewModel: StudentListViewModel, val listener: OnItemClickListener) :
     ListAdapter<User, StudentListAdapter.ViewHolder>(UserDiffCallback()) {
 
+    interface OnItemClickListener{
+        fun onclick(item: User)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -23,9 +27,13 @@ class StudentListAdapter(private val viewModel: StudentListViewModel) :
         holder.bind(viewModel, getItem(position))
     }
 
-    class ViewHolder(private val binding: ItemStudentsBinding) :
+    inner class ViewHolder(private val binding: ItemStudentsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(viewModel: StudentListViewModel, item: User) {
+
+            binding.root.setOnClickListener {
+                listener.onclick(item)
+            }
             binding.viewModel = viewModel
             binding.user = item
         }

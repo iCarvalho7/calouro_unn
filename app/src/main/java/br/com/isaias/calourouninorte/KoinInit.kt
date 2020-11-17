@@ -1,9 +1,9 @@
 package br.com.isaias.calourouninorte
 
-import androidx.room.Room
-import br.com.isaias.calourouninorte.data.api.FirebaseSerivce
+import br.com.isaias.calourouninorte.data.api.FirebaseService
 import br.com.isaias.calourouninorte.data.database.AppDatabase
 import br.com.isaias.calourouninorte.data.repository.UserRepository
+import br.com.isaias.calourouninorte.ui.chat.ChatViewModel
 import br.com.isaias.calourouninorte.ui.login.LoginViewModel
 import br.com.isaias.calourouninorte.ui.singup.SingUpViewModel
 import br.com.isaias.calourouninorte.ui.students_list.StudentListViewModel
@@ -15,10 +15,11 @@ val viewModelModule: Module = module {
     viewModel { LoginViewModel(get()) }
     viewModel { SingUpViewModel(get()) }
     viewModel { StudentListViewModel(get()) }
+    viewModel { ChatViewModel(get()) }
 }
 
 val module: Module = module {
-    single<FirebaseSerivce> {FirebaseSerivce()}
+    single<FirebaseService> {FirebaseService()}
     single<UserRepository> { UserRepository(get(), get()) }
 }
 

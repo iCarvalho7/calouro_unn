@@ -20,7 +20,6 @@
         <action
             android:id="@+id/action_loginFragment_to_studentListFragment"
             app:destination="@id/studentListFragment"
-            app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
@@ -42,7 +41,32 @@
 
     <fragment
         android:id="@+id/studentListFragment"
+        tools:layout="@layout/fragment_students_list"
         android:name="br.com.isaias.calourouninorte.ui.students_list.StudentListFragment"
-        android:label="StudentListFragment" />
+        android:label="StudentListFragment" >
+        <action
+            android:id="@+id/action_studentListFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" >
+            <argument
+                android:name="user"
+                app:argType="br.com.isaias.calourouninorte.data.model.User"
+                app:nullable="false" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="br.com.isaias.calourouninorte.ui.chat.ChatFragment"
+        tools:layout="@layout/fragment_chat"
+        android:label="ChatFragment" >
+        <argument
+            android:name="user"
+            app:argType="br.com.isaias.calourouninorte.data.model.User"
+            app:nullable="false" />
+    </fragment>
 
 </navigation>

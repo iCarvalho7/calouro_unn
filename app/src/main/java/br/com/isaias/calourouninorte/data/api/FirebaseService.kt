@@ -7,7 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
-class FirebaseSerivce {
+class FirebaseService {
 
     private val firebaseAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -70,5 +70,4 @@ class FirebaseSerivce {
         })
         return userList
     }
-
 }

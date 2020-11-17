@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import br.com.isaias.calourouninorte.data.model.User
 import br.com.isaias.calourouninorte.databinding.FragmentStudentsListBinding
 import kotlinx.android.synthetic.main.fragment_students_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -35,6 +37,10 @@ class StudentListFragment : Fragment() {
     }
 
     private fun setUpAdapter() {
-        adapter  = StudentListAdapter(viewModel)
+        adapter  = StudentListAdapter(viewModel, object : StudentListAdapter.OnItemClickListener{
+            override fun onclick(item: User) {
+                findNavController().navigate(StudentListFragmentDirections.actionStudentListFragmentToChatFragment(item))
+            }
+        })
     }
 }
