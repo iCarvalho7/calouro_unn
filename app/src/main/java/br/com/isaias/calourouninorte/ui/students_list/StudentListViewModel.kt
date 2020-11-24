@@ -15,4 +15,6 @@ class StudentListViewModel(private val userRepository: UserRepository): ViewMode
     }
 
     fun fetchUsersFromFirebase() = userRepository.getAllUsers()
+
+    fun logout()  = userRepository.logoutFirebaseUser()
 }

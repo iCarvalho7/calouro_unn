@@ -29,12 +29,10 @@
 
             <TextView
                 android:id="@+id/frag_chat_username"
+                style="@style/TextView.TitleApparence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
                 android:text="@{user.name}"
-                android:textColor="@color/white"
-                android:textSize="18sp"
                 tools:text="Isaias" />
         </androidx.appcompat.widget.Toolbar>
 

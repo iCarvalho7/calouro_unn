@@ -16,7 +16,7 @@ class UserRepository(private val serivce: FirebaseService, private val userDao: 
     fun loginInFirebase(username: String, password: String): MutableLiveData<FirebaseUser?> =
         serivce.login(username, password)
 
-    suspend fun logoutFirebaseUser() = serivce.logout()
+    fun logoutFirebaseUser() = serivce.logout()
     fun getFirebaseCurrentUser() = serivce.currentUser()
     fun getAllUsers() = serivce.fetchAllUsers()
 }
