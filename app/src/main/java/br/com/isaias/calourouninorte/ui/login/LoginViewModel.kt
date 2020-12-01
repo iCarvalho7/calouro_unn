@@ -31,7 +31,6 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
     init {
         username.observeForever(fieldsObserver)
         password.observeForever(fieldsObserver)
-        verifyIfUserIsLogged()
     }
 
     private fun verifyIfUserIsLogged() {
@@ -55,7 +54,9 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
     }
 
     private fun validateSignInFields() {
-        val isValid = username.value?.isFilled() ?: false && Patterns.EMAIL_ADDRESS.matcher(username.value).matches() && password.value?.isFilled() ?: false
+        val isValid = username.value?.isFilled() ?: false &&
+                Patterns.EMAIL_ADDRESS.matcher(username.value).matches() &&
+                password.value?.isFilled() ?: false
         _areFieldsFilled.postValue(isValid)
     }
 
@@ -69,5 +70,4 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
         username.removeObserver(fieldsObserver)
         password.removeObserver(fieldsObserver)
     }
-
 }

@@ -15,13 +15,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val actionBar = findViewById<Toolbar>(R.id.students_toolbar)
-        val navigationView = findViewById<NavigationView>(R.id.studentsNavView)
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
-        navigationView.setupWithNavController(navController)
-        setSupportActionBar(actionBar)
     }
 
     override fun onBackPressed() {

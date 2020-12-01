@@ -31,7 +31,6 @@ class StudentListFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         bind = FragmentStudentsListBinding.inflate(inflater, container, false)
-        val actionBar = ActionBarDrawerToggle(activity, drawer_layout, students_toolbar,R.string.open, R.string.close)
         return bind.root
     }
 

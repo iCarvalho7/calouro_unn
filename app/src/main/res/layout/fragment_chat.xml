@@ -59,7 +59,7 @@
                 android:id="@+id/frag_chat_message_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:text="aldsjabskajds" />
+                tools:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
