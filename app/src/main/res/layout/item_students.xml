@@ -11,37 +11,27 @@
         type="br.com.isaias.calourouninorte.data.model.User" />
 </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-        <ImageView
-            android:id="@+id/item_student_profile_photo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_user_generic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/item_student_user_name"
+            style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextAppearance.AppCompat.Body2"
-            tools:text="Teste Example"
-            android:text="@{user.name}"
             android:layout_marginHorizontal="16dp"
-            app:layout_constraintStart_toEndOf="@+id/item_student_profile_photo"
-            app:layout_constraintTop_toTopOf="@+id/item_student_profile_photo" />
+            android:text="@{user.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Teste Example" />
 
         <TextView
             android:id="@+id/item_student_user_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{user.email}"
-            app:layout_constraintBottom_toBottomOf="@+id/item_student_profile_photo"
             app:layout_constraintEnd_toEndOf="@+id/item_student_user_name"
             app:layout_constraintStart_toStartOf="@+id/item_student_user_name"
             app:layout_constraintTop_toBottomOf="@+id/item_student_user_name"

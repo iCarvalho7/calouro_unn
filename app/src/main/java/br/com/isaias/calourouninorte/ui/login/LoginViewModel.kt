@@ -31,6 +31,7 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
     init {
         username.observeForever(fieldsObserver)
         password.observeForever(fieldsObserver)
+        verifyIfUserIsLogged()
     }
 
     private fun verifyIfUserIsLogged() {

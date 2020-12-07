@@ -45,18 +45,20 @@ class LoginFragment : Fragment() {
             if (it != null) {
                 navigateToStudentList()
             } else {
-                Snackbar.make(view, "Erro ao fazer Login", Snackbar.LENGTH_SHORT).show()
+//                Snackbar.make(view, "Erro ao fazer Login", Snackbar.LENGTH_SHORT).show()
             }
         })
 
         viewModel.userLogged.observe(viewLifecycleOwner, Observer {
-            Snackbar.make(view, "User", Snackbar.LENGTH_SHORT).show()
+//            Snackbar.make(view, "User", Snackbar.LENGTH_SHORT).show()
             navigateToStudentList()
         })
 
         viewModel.userFirebaseLogged.observe(viewLifecycleOwner, Observer {
-            Snackbar.make(view, "Firebase User", Snackbar.LENGTH_SHORT).show()
-            navigateToStudentList()
+            if (it.data != null){
+//                Snackbar.make(view, "Firebase User", Snackbar.LENGTH_SHORT).show()
+                navigateToStudentList()
+            }
         })
     }
 
@@ -69,7 +71,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun navigateToStudentList(){
+    private fun navigateToStudentList(){
         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStudentListFragment())
     }
 }

@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import br.com.isaias.calourouninorte.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import org.koin.experimental.property.inject
 
 class FirebaseService {
 
@@ -23,11 +25,13 @@ class FirebaseService {
 
     fun login(email: String, password: String): MutableLiveData<FirebaseUser?> {
         try {
-            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    userIsLogged.postValue(firebaseAuth.currentUser)
-                } else {
-                    userIsLogged.postValue(null)
+            if (email != "" && password != ""){
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        userIsLogged.postValue(firebaseAuth.currentUser)
+                    } else {
+                        userIsLogged.postValue(null)
+                    }
                 }
             }
         }catch (e: Exception){}

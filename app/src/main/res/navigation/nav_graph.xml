@@ -46,11 +46,7 @@
         android:label="StudentListFragment" >
         <action
             android:id="@+id/action_studentListFragment_to_chatFragment"
-            app:destination="@id/chatFragment"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" >
+            app:destination="@id/chatFragment">
             <argument
                 android:name="user"
                 app:argType="br.com.isaias.calourouninorte.data.model.User"
